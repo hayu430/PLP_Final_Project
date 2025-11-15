@@ -3,8 +3,8 @@
 A full-stack web application for responsible electronic waste disposal, connecting users with certified recycling centers.
 
 ## Features
-
 ### User Features
+![User Dashboard](public/images/user-dashboard.png)
 - **User Registration & Login**: Secure authentication with bcrypt password hashing
 - **E-Waste Submission**: Submit electronic waste items with photo upload
 - **Status Tracking**: Track items from Pending → Collected → Recycled
