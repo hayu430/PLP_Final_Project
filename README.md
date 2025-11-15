@@ -13,7 +13,7 @@ A full-stack web application for responsible electronic waste disposal, connecti
 - **Find Centers**: Locate nearby recycling centers
 
 ### Admin Features
-![Admin Dashboard](public/images/user-dashboard.png)
+![Admin Dashboard](public/images/admin-pannel.png)
 - **Dashboard Analytics**: View total items, users, and recycling progress
 - **Status Management**: Update item status (Pending/Collected/Recycled)
 - **Visual Charts**: Category and status distribution charts using Chart.js
