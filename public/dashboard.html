@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - E-Waste Reclaimer</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <i class="fas fa-recycle"></i>
+                    <span>E-Waste Reclaimer</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="centers.html">Find Centers</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div>
+                        <h1>Welcome, <span id="userName">User</span>!</h1>
+                        <p>Track your e-waste contributions and eco-points</p>
+                    </div>
+                    <div class="points-badge">
+                        <i class="fas fa-star"></i>
+                        <span id="userPoints">0</span> Points
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="pendingCount">0</h3>
+                            <p>Pending Items</p>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon collected">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="collectedCount">0</h3>
+                            <p>Collected Items</p>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon recycled">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="recycledCount">0</h3>
+                            <p>Recycled Items</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-section">
+                    <button class="btn btn-primary" onclick="toggleSubmitForm()">
+                        <i class="fas fa-plus"></i> Submit New E-Waste
+                    </button>
+                </div>
+
+                <div id="submitForm" class="submit-form" style="display: none;">
+                    <h3>Submit E-Waste Item</h3>
+                    <form id="ewasteForm" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="itemName">Item Name *</label>
+                                <input type="text" id="itemName" name="name" required placeholder="e.g., Old Smartphone">
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category *</label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select category</option>
+                                    <option value="Mobile Phone">Mobile Phone</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Desktop Computer">Desktop Computer</option>
+                                    <option value="Tablet">Tablet</option>
+                                    <option value="Television">Television</option>
+                                    <option value="Monitor">Monitor</option>
+                                    <option value="Battery">Battery</option>
+                                    <option value="Printer">Printer</option>
+                                    <option value="Keyboard/Mouse">Keyboard/Mouse</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="condition">Condition *</label>
+                                <select id="condition" name="condition" required>
+                                    <option value="">Select condition</option>
+                                    <option value="Working">Working</option>
+                                    <option value="Broken">Broken</option>
+                                    <option value="Damaged">Damaged</option>
+                                    <option value="Non-functional">Non-functional</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location *</label>
+                                <input type="text" id="location" name="location" required placeholder="e.g., San Francisco, CA">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Upload Image</label>
+                            <input type="file" id="image" name="image" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="3" placeholder="Additional details about the item..."></textarea>
+                        </div>
+                        <div id="formError" class="error-message" style="display: none;"></div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Item
+                            </button>
+                            <button type="button" class="btn btn-outline" onclick="toggleSubmitForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="items-section">
+                    <h2>My E-Waste Submissions</h2>
+                    <div id="itemsContainer" class="items-grid"></div>
+                </div>
+
+                <div class="leaderboard-section">
+                    <h2>Top Contributors Leaderboard</h2>
+                    <div id="leaderboardContainer" class="leaderboard-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 E-Waste Reclaimer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
