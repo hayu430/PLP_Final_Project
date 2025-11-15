@@ -1,5 +1,5 @@
 # E-Waste Reclaimer
-
+![E-Waste Reclaimer Screenshot](public/images/landing-page.png)
 A full-stack web application for responsible electronic waste disposal, connecting users with certified recycling centers.
 
 ## Features
